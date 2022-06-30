@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
     slidesboxs = document.getElementsByClassName('box');    // get all fruits slides
 
     for (let i = 0; i < slidesboxs.length; i++) {
-        slidesboxs[i].addEventListener('click', (e) => {
+        slidesboxs[i].addEventListener('click', () => {
             currentSection = i;
             updateSection();
         });
@@ -24,15 +24,18 @@ window.addEventListener('load', () => {
 
 
 
+
 function updateSection() {
     const slideTitle = document.getElementById('slide-title'); // update title to current section
     slideTitle.innerHTML = "";
     const span = document.createElement('span');
     const p = document.createElement('p');
+    let number = 1;
 
     p.textContent = `אחסון ${array[currentSection].title}`;
     span.textContent = (currentSection + 1).toString() + '/' + array.length.toString();
     slideTitle.append(span, p);
+
 
     for (let j = 0; j < slidesboxs.length; j++) {
         slidesboxs[j].style.backgroundColor = 'white';
@@ -73,7 +76,8 @@ function right() {
 function left() {
     currentSection++;
     if (currentSection > array.length - 1)
-        currentSection = 0
+        currentSection = 0;
+
     updateSection();
 }
 
