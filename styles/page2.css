@@ -253,6 +253,7 @@ section {
     display: flex;
     text-align: center;
     justify-content: center;
+
 }
 
 #slidding-window #slide-title span {
@@ -398,12 +399,15 @@ section h6 {
 section p {
     font-size: 25px;
     width: 100%;
+    /* display: none; */
+    /* display: inline; */
 }
 
 
 section ol {
     font-size: 25px;
 }
+
 
 
 section img {
@@ -419,11 +423,32 @@ section img {
 
 .title {
     font-size: 25px;
+    cursor: pointer;
+    transition: all 0.7s;
+}
 
+.title:hover {
+    background-color: gray;
 }
 
 
 div#imgs-bar P {
     font-family: arimo;
     font-size: 40px;
+}
+
+.answer {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        background-color: blue;
+        padding: 0;
+        width: 100%;
+    }
+
+    nav {
+        display: none;
+    }
 }

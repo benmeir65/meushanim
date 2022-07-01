@@ -7,12 +7,16 @@ let explainBox;
 let sliddingWindowEl;
 let slidesboxs;
 
+let questions;
+
 
 window.addEventListener('load', () => {
     explainBox = document.getElementById("explain-box");  // get explain box element
     sliddingWindowEl = document.getElementById("slidding-window");
     array = document.getElementsByClassName('slide')    // get all html sections
     slidesboxs = document.getElementsByClassName('box');    // get all fruits slides
+    questions = document.getElementsByClassName('question'); // get all questions
+    openAnswerEvent(questions);
 
     for (let i = 0; i < slidesboxs.length; i++) {
         slidesboxs[i].addEventListener('click', () => {
@@ -77,10 +81,24 @@ function left() {
     currentSection++;
     if (currentSection > array.length - 1)
         currentSection = 0;
-
     updateSection();
 }
 
+
+function openAnswerEvent(questionsArray) {
+    for (let i = 0; i < questionsArray.length; i++)
+
+        for (const q of questionsArray) {
+            q.addEventListener('click', () => {
+                const answer = q.nextElementSibling;
+                if (answer.style.display === 'block')
+                    answer.style.display = 'none'
+                else
+                    answer.style.display = 'block';
+            })
+        }
+
+}
 
 
 
